@@ -12,7 +12,7 @@ private_file=cprik.der
 credentials_file=credentials.c
 keys_file=keys.pem
 
-args_list="credentials:,endpoint:,keys:,private:.public:"
+args_list="credentials:,endpoint:,keys:,private:,public:"
 
 args=$(getopt -o+ho:x -l $args_list -n "$(basename "$0")" -- "$@")
 eval set -- "$args"
