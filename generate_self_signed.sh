@@ -3,6 +3,7 @@
 realpath() {
     [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
 }
+set -e
 
 execdir="$(realpath "$(dirname "$0")")"
 
@@ -12,7 +13,16 @@ private_file=cprik.der
 credentials_file=credentials.c
 keys_file=keys.pem
 
-args_list="credentials:,endpoint:,keys:,private:,public:"
+# Set the argument list.
+# Every entry in the list should have an entry in the case statement below, and
+# every item in the case statement should have an entry in the list.
+
+args_list=""
+args_list="${args_list}credentials:"
+args_list="${args_list},endpoint:"
+args_list="${args_list},keys:"
+args_list="${args_list},private:"
+args_list="${args_list},public:"
 
 args=$(getopt -o+ho:x -l $args_list -n "$(basename "$0")" -- "$@")
 eval set -- "$args"
