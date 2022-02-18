@@ -77,9 +77,9 @@ def main():
         output_data.write("#ifndef __DEV_CREDENTIALS_H__\n")
         output_data.write("#define __DEV_CREDENTIALS_H__\n")
         if args.private is not None:
-            _process_data(args.private, output_data, "DEVICE_PRIVATE_KEY")
+            _process_data(args.private, output_data, "DEV_BOOTSTRAP_DEVICE_PRIVATE_KEY")
         if args.public is not None:
-            _process_data(args.public, output_data, "DEVICE_CERTIFICATE")
+            _process_data(args.public, output_data, "DEV_BOOTSTRAP_DEVICE_CERTIFICATE")
         output_data.write("#endif //__DEV_CREDENTIALS_H__\n")
 
 
